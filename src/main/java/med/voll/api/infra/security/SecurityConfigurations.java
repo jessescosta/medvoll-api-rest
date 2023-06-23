@@ -23,8 +23,8 @@ public class SecurityConfigurations {
     private SecurityFilter securityFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        return http.csrf(csrf -> csrf.disable())                                                                                // DESABILITADO CROSS DEVIDO A SER VIA TOKEN
-                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))                             //ANTES ERA STATFUL
+        return http.csrf(csrf -> csrf.disable())        // DESABILITADO CROSS DEVIDO A SER VIA TOKEN
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))    //ANTES ERA STATFUL
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/login").permitAll();
                     req.requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**").permitAll();
