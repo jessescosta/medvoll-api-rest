@@ -3,8 +3,9 @@ package med.voll.api.domain.consulta.validacoes;
 import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.infra.exception.ValidacaoException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Component
 public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta{
