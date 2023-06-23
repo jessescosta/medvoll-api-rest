@@ -12,7 +12,6 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
             select p.ativo
             from Paciente p
             where p.id = :id
-            and p.ativo = true
             """)
     boolean findAtivoById(Long id);
 }
