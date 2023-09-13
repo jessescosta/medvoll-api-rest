@@ -27,7 +27,8 @@ public class SecurityConfigurations {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))    //ANTES ERA STATFUL
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                    req.requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**").permitAll();
+                    req.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll(); // OPTIONS DO CROME PRA DELETE
+                    req.requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**","*").permitAll();
                     req.anyRequest().authenticated();
                 })
                 //.addFilterBefore(new UsernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
